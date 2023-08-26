@@ -101,6 +101,7 @@ var (
 			Mask: []byte{255, 192, 0, 0},
 		},
 	}
+
 	// Sourced from https://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry.xhtml
 	// where Global, Source, or Destination is False
 	privateV6Networks = []net.IPNet{
@@ -131,9 +132,8 @@ func IsPrivateIp(ip net.IP) bool {
 
 	if IsIPv6(ip) {
 		return isPrivateV6(ip)
-	} else {
-		return isPrivateV4(ip)
 	}
+	return isPrivateV4(ip)
 }
 
 func isPrivateV4(ip net.IP) bool {
@@ -159,7 +159,7 @@ func isPrivateV6(ip net.IP) bool {
 func parseCidr(network string, comment string) net.IPNet {
 	_, n, err := net.ParseCIDR(network)
 	if err != nil {
-		panic(fmt.Sprintf("error parsing %s (%s): %s", network, comment, err))
+		panic(fmt.Errorf("error parsing %s (%s): %s", network, comment, err))
 	}
 	return *n
 }

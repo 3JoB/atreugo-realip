@@ -2,10 +2,11 @@ package realip
 
 import (
 	"net"
-	"net/http"
+	"net/textproto"
 	"strings"
 
-	"github.com/valyala/fasthttp"
+	"github.com/3JoB/atreugo-realip/util"
+	"github.com/savsgio/atreugo/v11"
 )
 
 var headers = [...]string{
@@ -21,13 +22,13 @@ var headers = [...]string{
 	"Forwarded",
 }
 
-func FromRequest(ctx *fasthttp.RequestCtx) string {
-	if ctx == nil {
+func FromRequest(c *atreugo.RequestCtx) string {
+	if c == nil {
 		return ""
 	}
 
 	for _, h := range headers {
-		val := string(ctx.Request.Header.Peek(http.CanonicalHeaderKey(h)))
+		val := util.RequestHeader(c, textproto.CanonicalMIMEHeaderKey(h))
 
 		if strings.ContainsRune(val, ',') {
 			for _, address := range strings.Split(val, ",") {
@@ -43,7 +44,7 @@ func FromRequest(ctx *fasthttp.RequestCtx) string {
 		}
 	}
 
-	remoteAddr := ctx.RemoteAddr().String()
+	remoteAddr := c.RemoteAddr().String()
 	var remoteIP string
 
 	if strings.ContainsRune(remoteAddr, ':') {

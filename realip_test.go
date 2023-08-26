@@ -5,18 +5,18 @@ import (
 	"net"
 	"testing"
 
-	"github.com/valyala/fasthttp"
+	"github.com/savsgio/atreugo/v11"
 )
 
 type testIP struct {
 	name     string
-	request  *fasthttp.RequestCtx
+	request  *atreugo.RequestCtx
 	expected string
 }
 
 func TestFromRequest(t *testing.T) {
-	newRequest := func(remoteAddr string, headers map[string]string) *fasthttp.RequestCtx {
-		var ctx fasthttp.RequestCtx
+	newRequest := func(remoteAddr string, headers map[string]string) *atreugo.RequestCtx {
+		var ctx atreugo.RequestCtx
 		addr := &net.TCPAddr{
 			IP: net.ParseIP(remoteAddr),
 		}

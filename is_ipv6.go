@@ -8,7 +8,7 @@ func IsIPv6(ip net.IP) bool {
 
 func IsStringIPv6(ip string) bool {
 	for i := 0; i < len(ip); i++ {
-		if ':' == ip[i] {
+		if ip[i] == ':' {
 			return true
 		}
 	}
