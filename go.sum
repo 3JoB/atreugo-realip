@@ -1,5 +1,7 @@
 github.com/3JoB/unsafeConvert v1.5.0 h1:zZGo8G/+yQu2h53GR2h0T+0VlD1uXEZgZIBH5ehjTgk=
 github.com/3JoB/unsafeConvert v1.5.0/go.mod h1:eSOZxiCOcyEi0vBO56ULYtfXJEn4vafvkebEfI0pYoE=
+github.com/3JoB/unsafeConvert v1.6.0 h1:HkLfjVLN10fB41bQtVbyc1RY43ZM5e3D+ZDuztR8E4U=
+github.com/3JoB/unsafeConvert v1.6.0/go.mod h1:eSOZxiCOcyEi0vBO56ULYtfXJEn4vafvkebEfI0pYoE=
 github.com/andybalholm/brotli v1.0.5 h1:8uQZIdzKmjc/iuPu7O2ioW48L81FgatrcpfFmiq/cCs=
 github.com/andybalholm/brotli v1.0.5/go.mod h1:fO7iG3H7G2nSZ7m0zPUDn85XEX2GTukHGRSepvi9Eig=
 github.com/atreugo/mock v0.0.0-20200601091009-13c275b330b0 h1:IVqe9WnancrkICl5HqEfGjrnkQ4+VsU5fodcuFVoG/A=

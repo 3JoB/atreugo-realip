@@ -1,9 +1,9 @@
 module github.com/3JoB/atreugo-realip
 
-go 1.21.0
+go 1.21.1
 
 require (
-	github.com/3JoB/unsafeConvert v1.5.0
+	github.com/3JoB/unsafeConvert v1.6.0
 	github.com/savsgio/atreugo/v11 v11.10.1
 	github.com/stretchr/testify v1.7.0
 )
