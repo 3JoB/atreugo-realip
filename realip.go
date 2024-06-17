@@ -38,14 +38,14 @@ func FromRequest(c *atreugo.RequestCtx) string {
 	for _, h := range headers {
 		val := util.RequestHeader(c, textproto.CanonicalMIMEHeaderKey(h))
 		if strings.ContainsRune(val, ',') {
-			str_sp := strings.Split(val, ",")
-			str_len := len(str_sp)
+			strSp := strings.Split(val, ",")
+			strLen := len(strSp)
 			address := ""
-			if str_len > 2 {
-				address = strings.TrimSpace(str_sp[1])
-				
+			if strLen > 2 {
+				address = strings.TrimSpace(strSp[1])
+
 			} else {
-				address = strings.TrimSpace(str_sp[0])
+				address = strings.TrimSpace(strSp[0])
 			}
 			if isValidPublicAddress(address) {
 				return address
